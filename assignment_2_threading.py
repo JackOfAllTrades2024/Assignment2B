@@ -281,6 +281,7 @@ from datetime import datetime, timedelta
 from tkinter import Label  
 import threading
 import time
+import html
 # URLs for the news sources
 NEWS_9NEWS = 'https://www.9news.com.au/just-in'
 NEWS_AGE = 'https://www.theage.com.au/breaking-news'
@@ -345,11 +346,13 @@ def confirm_button_click():
                 title = title_match.group(1)
                 time = time_match.group(1)
                 abstract = abstract_match.group(1)
-                # Display the title in larger bolded font
-                title_label = Label(information_section, text=title, font=("Arial", 16, "bold"), wraplength=600)
+                # Display the title in larger bolded font & remove html symbol formatting from the title
+                fixed_title = html.unescape(title_match.group(1))
+                title_label = Label(information_section, text=fixed_title, font=("Arial", 16, "bold"), wraplength=600)
                 title_label.pack()
-                # Display the abstract in regular style
-                abstract_label = Label(information_section, text=abstract, wraplength=600)
+                #Remove html symbol formatting from the abstract
+                fixed_abstract = html.unescape(abstract_match.group(1))
+                abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
                 text = time_match.group(1)
                 time = text.split()[0]
@@ -388,11 +391,13 @@ def confirm_button_click():
                 time = time_match.group(1)
                 title = title_match.group(1)
                 abstract = abstract_match.group(1)
-                # Display the title in larger bolded font
-                title_label = Label(information_section, text=title, font=("Arial", 16, "bold"), wraplength=600)
+                # Display the title in larger bolded font & remove html symbol formatting from the title
+                fixed_title = html.unescape(title_match.group(1))
+                title_label = Label(information_section, text=fixed_title, font=("Arial", 16, "bold"), wraplength=600)
                 title_label.pack()
-                # Display the abstract in normal font
-                abstract_label = Label(information_section, text=abstract, wraplength=600)
+                #Remove html symbol formatting from the abstract
+                fixed_abstract = html.unescape(abstract_match.group(1))
+                abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
                 # Display the time in a different color
                 text = time_match.group(1)
@@ -432,11 +437,13 @@ def confirm_button_click():
                 time = time_match.group(1)
                 title = title_match.group(1)
                 abstract = abstract_match.group(1)
-                # Display the title in larger bolded font
-                title_label = Label(information_section, text=title, font=("Arial", 16, "bold"), wraplength=600)
+                # Display the title in larger bolded font & remove html symbol formatting from the title
+                fixed_title = html.unescape(title_match.group(1))
+                title_label = Label(information_section, text=fixed_title, font=("Arial", 16, "bold"), wraplength=600)
                 title_label.pack()
-                # Display the abstract in normal font
-                abstract_label = Label(information_section, text=abstract, wraplength=600)
+                #Remove html symbol formatting from the abstract
+                fixed_abstract = html.unescape(abstract_match.group(1))
+                abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
                 text = time_match.group(1)
                 time = text.split()[0]
