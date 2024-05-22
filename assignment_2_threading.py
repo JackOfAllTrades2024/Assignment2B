@@ -255,7 +255,7 @@ def download(url = 'http://www.wikipedia.org/',
 #-----Student's Solution---------------------------------------------#
 #
 # Put your solution below.
-#
+
 # Create the main window
 main_window = Tk()
 
@@ -274,10 +274,11 @@ main_window = Tk()
 # It will lose some accuracy but it will work
 
 # Your code goes here
+# All Libraries are native to python
 import re
 import datetime
 from datetime import datetime, timedelta
-from tkinter import Label  # Import the Label class from tkinter
+from tkinter import Label  
 import threading
 import time
 # URLs for the news sources
