@@ -354,9 +354,19 @@ def confirm_button_click():
                 fixed_abstract = html.unescape(abstract_match.group(1))
                 abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
+
+                # Process time
                 text = time_match.group(1)
                 time = text.split()[0]
-                time = int(time)
+                # Process time to identify hours and non number representations
+                if time == 'Just':
+                    time = 1
+                else:
+                    if 'hour' in time_match.group(1):
+                        time = int(text.split()[0]) * 60
+                    else:
+                        time = int(text.split()[0])
+                # Display time
                 upload_datetime = current_datetime - timedelta(minutes=time)
                 display_datetime = upload_datetime.replace(microsecond=0)
                 time_label = Label(information_section, text='~' + str(display_datetime), fg="blue")
@@ -391,18 +401,29 @@ def confirm_button_click():
                 time = time_match.group(1)
                 title = title_match.group(1)
                 abstract = abstract_match.group(1)
-                # Display the title in larger bolded font & remove html symbol formatting from the title
+                # Display the title in larger bolded font & remove html symbol formatting from the title and show it
                 fixed_title = html.unescape(title_match.group(1))
                 title_label = Label(information_section, text=fixed_title, font=("Arial", 16, "bold"), wraplength=600)
                 title_label.pack()
-                #Remove html symbol formatting from the abstract
+                #Remove html symbol formatting from the abstract and print it
                 fixed_abstract = html.unescape(abstract_match.group(1))
                 abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
-                # Display the time in a different color
+
+
+                # Process time
                 text = time_match.group(1)
                 time = text.split()[0]
-                time = int(time)
+
+                # Process time to identify hours and non number representations
+                if time == 'Just':
+                    time = 1
+                else:
+                    if 'hour' in time_match.group(1):
+                        time = int(text.split()[0]) * 60
+                    else:
+                        time = int(text.split()[0])
+                # Display time
                 upload_datetime = current_datetime - timedelta(minutes=time)
                 display_datetime = upload_datetime.replace(microsecond=0)
                 time_label = Label(information_section, text='~' + str(display_datetime), fg="blue")
@@ -445,9 +466,23 @@ def confirm_button_click():
                 fixed_abstract = html.unescape(abstract_match.group(1))
                 abstract_label = Label(information_section, text=fixed_abstract, wraplength=600)
                 abstract_label.pack()
+
+                # Process time
                 text = time_match.group(1)
                 time = text.split()[0]
-                time = int(time)
+                # Process time
+                text = time_match.group(1)
+                time = text.split()[0]
+
+                # Process time to identify hours and non number representations
+                if time == 'Just':
+                    time = 1
+                else:
+                    if 'hour' in time_match.group(1):
+                        time = int(text.split()[0]) * 60
+                    else:
+                        time = int(text.split()[0])
+                # Display time
                 upload_datetime = current_datetime - timedelta(minutes=time)
                 display_datetime = upload_datetime.replace(microsecond=0)
                 time_label = Label(information_section, text='~' + str(display_datetime), fg="blue")
